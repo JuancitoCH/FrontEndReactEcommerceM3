@@ -3,7 +3,12 @@ module.exports = {
     "./src/**/*.{js,jsx}",
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      'Roboto':['Roboto Condensed',"sans-serif"],
+      'Abril':['Abril Fatface', "cursive"],
+      'Barlow':['Barlow', "sans-serif"],
+      'Bebas':['Bebas Neue', "cursive"]
+    }
   },
   plugins: [],
 }
