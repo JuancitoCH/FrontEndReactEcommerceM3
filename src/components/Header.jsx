@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 export default function Header() {
   const [searchShow,setSearchShow] = useState(false)
   return (
-    <header className='bg-gray-100 opacity-80 text-center sticky top-0 z-40 '>
+    <header className='bg-gray-100 opacity-80 text-center sticky top-0 z-40  '>
         <h1 className='text-4xl font-medium'><Link to={'/'}>E-FRUITS</Link></h1>
         <nav className=''>
             <ul className='flex gap-5 justify-center'>
