@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 export default function ProductsDisplay({ product }) {
-    console.log(product)
+    // console.log(product)
    
     return (
         <article className='relative rounded-sm'>

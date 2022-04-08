@@ -7,7 +7,7 @@ export default function DisplaySixProducts() {
     get('/products/all')
     .then(({data})=>setProducts(data))
   },[])
-  console.log(products)
+  // console.log(products)
   return (
     <section className="flex gap-1 m-4">
       {products.map(product=><ProductsDisplay key={product._id} product={product}/>)}
