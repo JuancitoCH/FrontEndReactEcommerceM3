@@ -7,7 +7,7 @@ export const login = createAsyncThunk('user/login',async(creadentials,thunkApi)=
         email:creadentials.email,
         password:creadentials.password
     })
-    console.log(data)
+    // console.log(data)
     if(data.success===false){
         return thunkApi.rejectWithValue(data)
     }
@@ -15,7 +15,7 @@ export const login = createAsyncThunk('user/login',async(creadentials,thunkApi)=
 })
 export const logged = createAsyncThunk('user/logged',async(creadentials,thunkApi)=>{
     const {data} = await get('/user/service/login/validate')
-    console.log(data)
+    // console.log(data)
     if(data.success===false){
         return thunkApi.rejectWithValue(data)
     }

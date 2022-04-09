@@ -5,6 +5,7 @@ import DisplaySixProducts from "../components/DisplaySixProducts"
 export default function Home() {
   return  (
     <section className='flex flex-col justify-center items-center'>
+      
         <Productshowleft/>
         {/* zona con productos para comer*/}
         <DisplaySixProducts/>

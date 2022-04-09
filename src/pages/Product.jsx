@@ -4,7 +4,9 @@ import { get } from '../api/axiosConfig'
 import ProductPageDisplay from '../components/ProductPageDisplay'
 
 export default function Product() {
+  
   const {idProduct} = useParams()
+  
   const [product,setProduct] = useState({})
   
   useEffect(()=>{
