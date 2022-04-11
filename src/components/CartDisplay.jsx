@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { showCart } from '../features/cart/cartSlice'
 import { motion } from 'framer-motion'
-import { get } from '../api/axiosConfig'
+import { get,post } from '../api/axiosConfig'
 import {Link} from 'react-router-dom'
 export default function CartDisplay() {
-    const { show } = useSelector(state => state.cart)
+    const { show,changeCart } = useSelector(state => state.cart)
     const Dispatch = useDispatch()
     const [cartProducts, setCartProducts] = useState([])
     useEffect(() => {
         get('/cart/service/')
             .then(({ data }) => setCartProducts(data))
-    }, [])
-    console.log(cartProducts)
+    }, [changeCart])
+    
     return (
         <>
             {show &&
@@ -24,11 +24,11 @@ export default function CartDisplay() {
                             opacity: 1
                         }}
                         transition={{ duration: '1.3' }}
-                        className='fixed bg-slate-100 opacity-10 w-1/4 h-screen -right-28 z-50 shadow-lg '>
+                        className='fixed bg-slate-100 opacity-10 w-1/4 h-screen -right-28 z-50 shadow-lg overflow-y-auto '>
 
-                        {cartProducts.products?.map(product => {
+                        {cartProducts.products?.map((product,index)=> {
                             if (!product._id) return
-                            return (<div className='h-28 my-1 shadow-lg bg-white flex relative'>
+                            return (<div key={index} className='h-28 my-1 shadow-lg bg-white flex relative'>
                                 <button className='absolute top-0 right-2'>x</button>
                                 <div className='h-24 w-32 ml-2 mt-2 overflow-hidden'>
                                 <Link to={'/product/'+product._id._id}>
@@ -44,7 +44,7 @@ export default function CartDisplay() {
                             </div>)
                         })}
 
-                        <button className='mt-6 bg-gray-600 text-slate-100 px-12 hover:bg-orange-500 transition-colors ease-in-out'>Pay</button>
+                        <button className='mt-2 mb-20 bg-gray-600 text-slate-100 px-12 hover:bg-orange-500 transition-colors ease-in-out'>Pay</button>
                     </motion.section>
                 </>
             }

@@ -23,7 +23,7 @@ export default function Header() {
         <h1 className='text-4xl font-medium'><Link to={'/'}>E-FRUITS</Link></h1>
         <nav className=''>
             <ul className='flex gap-5 justify-center'>
-                <li><Link to={'/'}>Search</Link></li>
+                <li><Link to={'/search'}>Search</Link></li>
                 <li><Link to={'/'}>Fruits</Link></li>
                 <li><Link to={'/'}>Shop</Link></li>
                 <li><Link to={'/'}>Pies</Link></li>

@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Product from './pages/Product';
+import ProductsSearchPage from './pages/ProductsSearchPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path='/' element={<Home/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/product/:idProduct' element={<Product/>}/>
+          <Route path='/search' element={<ProductsSearchPage/>}/>
           </Routes>
           <Footer/>
       </BrowserRouter>

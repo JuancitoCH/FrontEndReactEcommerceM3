@@ -21,12 +21,16 @@ const cartSlice = createSlice({
         show:false,
         error:false,
         errorMessage:'',
-        loading:false
+        loading:false,
+        changeCart:true
 
     },
     reducers:{
         showCart(state,action){
             state.show = !state.show
+        },
+        loadChangeCart(state,action){
+            state.changeCart=!state.changeCart
         }
     },
     extraReducers(builder){
@@ -42,4 +46,4 @@ const cartSlice = createSlice({
 })
 
 export default cartSlice.reducer
-export const {showCart} = cartSlice.actions
+export const {showCart,loadChangeCart} = cartSlice.actions
