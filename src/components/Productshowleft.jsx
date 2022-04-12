@@ -8,7 +8,7 @@ export default function Productshowleft() {
             {/* d6c8e437-af48-4c39-90db-4ebcf3a042c2.jpg */}
             
             <div className='h-[calc(31rem)] overflow-hidden '>
-                <img onLoad={()=>setImgCharge(!imgCharge)} className={` relative  object-cover w-full h-full ${imgCharge?"opacity-100":"opacity-0"} transition-opacity ease-in-out duration-10000`} src="https://eccomerce-346201.rj.r.appspot.com/files/storage/download/d6c8e437-af48-4c39-90db-4ebcf3a042c2.jpg" alt="" />
+                <img onLoad={()=>setImgCharge(!imgCharge)} className={` relative  object-cover w-full h-full ${imgCharge?"opacity-100":"opacity-0"} transition-opacity ease-in-out duration-1000`} src="https://eccomerce-346201.rj.r.appspot.com/files/storage/download/d6c8e437-af48-4c39-90db-4ebcf3a042c2.jpg" alt="" />
             </div>
             <section className='flex flex-col'>
                 <h2 className='  text-3xl font-semibold font-Abril text-right pr-5 pt-16 w-56 self-end'>DISFRUTA DE NUESTRO BANANO</h2>

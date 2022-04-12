@@ -17,7 +17,7 @@ export default function ProductsDisplay({ product }) {
                         <p className='relative -top-2'>${product.price}</p>
                         <p className='relative top-3 self-center'>{product.description}</p>
                     </motion.div>
-                    <img onLoad={()=>setImgCharge(!imgCharge)} className={`object-cover w-full h-full ${imgCharge?"opacity-100":"opacity-0"} transition-opacity ease-in-out duration-10000`} src={"https://eccomerce-346201.rj.r.appspot.com/files/storage/download/" + product.pics[0]} alt="" />
+                    <img onLoad={()=>setImgCharge(!imgCharge)} className={`object-cover w-full h-full ${imgCharge?"opacity-100":"opacity-0"} transition-opacity ease-in-out duration-1000`} src={"https://eccomerce-346201.rj.r.appspot.com/files/storage/download/" + product.pics[0]} alt="" />
                 </div>
             </Link>
         </article>

@@ -15,7 +15,7 @@ export default function Productshowleft() {
                 <p className=' my-1 text-xl font-extralight text-left w-72  pl-5'>QUIEN NO QUISO RECIBIR UNA ALGUNA VEZ?</p>
             </section>
             <div className='h-[calc(31rem)] overflow-hidden '>
-                <img onLoad={()=>setImgCharge(!imgCharge)} className={` relative  object-cover w-full h-full ${imgCharge?"opacity-100":"opacity-0"} transition-opacity ease-in-out duration-10000 `} src="https://eccomerce-346201.rj.r.appspot.com/files/storage/download/d3494bf4-926b-44cd-82c7-18c930e29b71.jpg" alt="" />
+                <img onLoad={()=>setImgCharge(!imgCharge)} className={` relative  object-cover w-full h-full ${imgCharge?"opacity-100":"opacity-0"} transition-opacity ease-in-out duration-1000 `} src="https://eccomerce-346201.rj.r.appspot.com/files/storage/download/d3494bf4-926b-44cd-82c7-18c930e29b71.jpg" alt="" />
             </div>
         </article>
     )
