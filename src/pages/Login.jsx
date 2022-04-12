@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import {login} from '../features/user/userSlice'
 import {useNavigate} from 'react-router-dom'
+import { loadChangeCart } from '../features/cart/cartSlice'
 
 export default function Login() {
     const redirect = useNavigate()
@@ -15,6 +16,7 @@ export default function Login() {
         }))
         
         if(data.payload.success) redirect('/')
+        Dispatch(loadChangeCart())
     }
   return (
     <section>
@@ -33,7 +35,7 @@ export default function Login() {
             </form>
             <div className=' text-center' >
                 <p className='text-slate-600'>Dont have an acoount yet?</p>
-                <Link className='text-orange-500 font-bold hover:text-orange-700' to={'/'}>Enter Here</Link>
+                <Link className='text-orange-500 font-bold hover:text-orange-700' to={'/register'}>Enter Here</Link>
             </div>
         </article>
     </section>

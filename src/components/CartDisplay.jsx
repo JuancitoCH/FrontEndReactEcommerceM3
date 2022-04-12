@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { showCart } from '../features/cart/cartSlice'
 import { motion } from 'framer-motion'
-import { get,post } from '../api/axiosConfig'
+import { get,post,del } from '../api/axiosConfig'
 import {Link} from 'react-router-dom'
 import PayElementCart from './PayElementCart'
 import { loadChangeCart } from '../features/cart/cartSlice'
@@ -16,6 +16,13 @@ export default function CartDisplay() {
         get('/cart/service/')
             .then(({ data }) => setCartProducts(data))
     }, [changeCart])
+    const deleteProductCart=(idProduct)=>{
+        post('/cart/service/product/pull',{
+            idProduct
+        }).then((data)=>{
+            Dispatch(loadChangeCart())
+        })
+    }
     
     return (
         <>
@@ -32,7 +39,7 @@ export default function CartDisplay() {
                         {cartProducts.products?.map((product,index)=> {
                             if (!product._id) return
                             return (<div key={index} className='h-28 my-1 shadow-lg bg-white flex relative'>
-                                <button className='absolute top-0 right-2'>x</button>
+                                <button onClick={()=>{deleteProductCart(product._id._id)}} className='absolute top-0 right-2'>x</button>
                                 <div className='h-24 w-32 ml-4 mt-2 mr-4 overflow-hidden rounded-lg'>
                                 <Link to={'/product/'+product._id._id}>
                                     <img className='object-fill rounded-lg' src={`https://eccomerce-346201.rj.r.appspot.com/files/storage/download/${product._id.pics[0]}`} alt="" />

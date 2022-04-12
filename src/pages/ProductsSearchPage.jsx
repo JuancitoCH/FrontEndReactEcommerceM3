@@ -42,13 +42,14 @@ export default function ProductsSearchPage() {
   return (
     <section className='text-gray-700'>
       <motion.button className=' text-2xl mr-4 text-slate-500 hover:text-orange-500 relative left-36 top-12 ' onClick={() => setShowSearch(!showSearch)}
-
+        animate={{x:[0,2,0]}}
+        transition={{ease:'linear',duration:1, repeat:Infinity}}
       >{showSearch ? '<' : '>'}</motion.button>
       <form className='flex mt-5 ml-40' onSubmit={inputSearch}>
         <button className={`hover:text-orange-500 transition-colors ease-in-out ${!showSearch ? 'opacity-0' : 'opacity-100'} transition-opacity ease-in duration-600 `} ><BsSearch className=' text-2xl mr-4 ml-1' /></button>
         <input autoComplete='off' name="search" className={`border-slate-500 border-2 rounded-sm outline-none ${!showSearch ? 'opacity-0 w-0' : 'opacity-100 w-36'} focus:border-slate-800 transition-all ease-out duration-500 `} type="text" id="" />
       </form>
-      <div className='shadow-lg flex flex-col items-center relative min-h-[calc(100vh-20vh)]'>
+      <div className='shadow-lg flex flex-col items-center relative min-h-[calc(75vh)]'>
 
         <article className='flex flex-row m-5  p-1 min-w-[calc(80%)] max-w-[calc(80%)] mb-20'>
           <div className='flex flex-col w-24 m-4 p-2'>

@@ -13,6 +13,19 @@ export const login = createAsyncThunk('user/login',async(creadentials,thunkApi)=
     }
     return data
 })
+export const register = createAsyncThunk('user/register',async(creadentials,thunkApi)=>{
+    
+    const {data} = await post('/user/service/register',{
+        email:creadentials.email,
+        password:creadentials.password,
+        username:creadentials.username,
+    })
+    // console.log(data)
+    if(data.success===false){
+        return thunkApi.rejectWithValue(data)
+    }
+    return data
+})
 export const logged = createAsyncThunk('user/logged',async(creadentials,thunkApi)=>{
     const {data} = await get('/user/service/login/validate')
     // console.log(data)
@@ -58,6 +71,29 @@ const userSlice = createSlice({
             state.loading = true
         })
         builder.addCase(login.rejected,(state,action)=>{
+            state.email=""
+            state.username=""
+            state.role=""
+            state.login = false
+            state.loading = false
+            state.error = true
+            state.errorMessage = action.payload.message
+
+        })
+
+
+        builder.addCase(register.fulfilled,(state,action)=>{
+            state.email=action.payload.user.email
+            state.username=action.payload.user.username
+            state.role=action.payload.user.role
+            state.login = true
+            state.loading = false
+            
+        })
+        builder.addCase(register.pending,(state,action)=>{
+            state.loading = true
+        })
+        builder.addCase(register.rejected,(state,action)=>{
             state.email=""
             state.username=""
             state.role=""

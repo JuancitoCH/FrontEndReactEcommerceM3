@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import { logged,logout } from '../features/user/userSlice'
 import CartDisplay from './CartDisplay'
-import {showCart} from '../features/cart/cartSlice'
+import {loadChangeCart, showCart} from '../features/cart/cartSlice'
 
 
 
@@ -16,6 +16,7 @@ export default function Header() {
 // TODO: hacer el get al validate de la sesion aqui o en app?
   useEffect(()=>{
     Dispatch(logged())
+    Dispatch(loadChangeCart())
     console.log("logged")
   },[])
   return (
@@ -24,11 +25,11 @@ export default function Header() {
         <h1 className='text-4xl font-medium'><Link to={'/'}>E-FRUITS</Link></h1>
         <nav className=''>
             <ul className='flex gap-5 justify-center'>
-                <li><Link to={'/search'}>Search</Link></li>
-                <li><Link to={'/'}>Fruits</Link></li>
-                <li><Link to={'/'}>Shop</Link></li>
-                <li><Link to={'/'}>Pies</Link></li>
-                <li><Link to={'/'}>About</Link></li>
+                <li><Link className='hover:text-orange-500 transition-colors ease-in-out ' to={'/'}>Fruits</Link></li>
+                <li><Link className='hover:text-orange-500 transition-colors ease-in-out ' to={'/search'}>Search</Link></li>
+                <li><Link className='hover:text-orange-500 transition-colors ease-in-out ' to={'/'}>Shop</Link></li>
+                <li><Link className='hover:text-orange-500 transition-colors ease-in-out ' to={'/'}>Pies</Link></li>
+                <li><Link className='hover:text-orange-500 transition-colors ease-in-out ' to={'/'}>About</Link></li>
             </ul>
         </nav>
         <div className='absolute right-3 top-2 flex'>

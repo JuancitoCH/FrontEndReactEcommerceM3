@@ -23,10 +23,10 @@ export default function ProductPageDisplay({ data }) {
                     <div className='ml-1 my-1'>
                         {data.pics.map((pic, index) =>
                             <div key={index} className='w-24 h-24 overflow-hidden mb-1 rounded-md'>
-                                <img className='object-cover hover:cursor-pointer hover:opacity-60 transition-opacity ease-in duration-200' onClick={() => setImagen(pic)} src={'https://eccomerce-346201.rj.r.appspot.com/files/storage/download/' + pic} />
+                                <img className='object-cover hover:cursor-pointer h-full w-full hover:opacity-60 transition-opacity ease-in duration-200' onClick={() => setImagen(pic)} src={'https://eccomerce-346201.rj.r.appspot.com/files/storage/download/' + pic} />
                             </div>)}
                     </div>
-                    <div className=' w-2/3 overflow-hidden  relative mx-2'>
+                    <div className=' w-2/3 h-[calc(80vh)] overflow-hidden  relative mx-2'>
                         <img className='w-full h-full object-cover' src={imagen ? "https://eccomerce-346201.rj.r.appspot.com/files/storage/download/" + imagen : "https://eccomerce-346201.rj.r.appspot.com/files/storage/download/" + data.pics[0]} alt="" />
                     </div>
                 </section>

@@ -4,7 +4,7 @@ export default function Productshowleft() {
     const [imgCharge,setImgCharge] = useState(false)
     
     return (
-        <article  className={`grid grid-cols-2 md:w-4/6 ${imgCharge?"":"animate-pulse"}  mt-10 rounded-sm shadow-md shadow-slate-400 text-slate-800`}>
+        <article  className={`grid grid-cols-2 md:w-4/6 ${imgCharge?"":"animate-pulse"}  mt-10 rounded-sm shadow-md  shadow-slate-400 text-slate-800`}>
             {/* d6c8e437-af48-4c39-90db-4ebcf3a042c2.jpg */}
             
             <div className='h-[calc(31rem)] overflow-hidden '>
