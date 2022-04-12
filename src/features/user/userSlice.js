@@ -21,6 +21,14 @@ export const logged = createAsyncThunk('user/logged',async(creadentials,thunkApi
     }
     return data
 })
+export const logout = createAsyncThunk('user/logout',async(creadentials,thunkApi)=>{
+    const {data} = await get('/user/service/logout')
+    // console.log(data)
+    if(data.success===false){
+        return thunkApi.rejectWithValue(data)
+    }
+    return data
+})
 
 const userSlice = createSlice({
     name:"user",
@@ -81,6 +89,18 @@ const userSlice = createSlice({
             state.error = true
             state.errorMessage = action.payload.message
 
+        })
+
+        builder.addCase(logout.fulfilled,(state,action)=>{
+            state.email=""
+            state.username=""
+            state.role=""
+            state.login = false
+            state.loading = false
+            
+        })
+        builder.addCase(logout.pending,(state,action)=>{
+            state.loading = true
         })
 
         

@@ -4,10 +4,14 @@ import { showCart } from '../features/cart/cartSlice'
 import { motion } from 'framer-motion'
 import { get,post } from '../api/axiosConfig'
 import {Link} from 'react-router-dom'
+import PayElementCart from './PayElementCart'
+import { loadChangeCart } from '../features/cart/cartSlice'
+
 export default function CartDisplay() {
     const { show,changeCart } = useSelector(state => state.cart)
     const Dispatch = useDispatch()
     const [cartProducts, setCartProducts] = useState([])
+    const [pay, setPay] = useState()
     useEffect(() => {
         get('/cart/service/')
             .then(({ data }) => setCartProducts(data))
@@ -44,8 +48,17 @@ export default function CartDisplay() {
                             </div>)
                         })}
 
-                        <button className='mt-2 mb-20 bg-gray-600 text-slate-100 px-12 hover:bg-orange-500 transition-colors ease-in-out'>Pay</button>
+                        <button onClick={()=>setPay(!pay)} className='mt-2 mb-20 bg-gray-600 text-slate-100 px-12 hover:bg-orange-500 transition-colors ease-in-out'>Pay</button>
                     </motion.section>
+                    {pay &&
+                    <div className='flex absolute w-full z-50 justify-center overflow-hidden'>
+                        <div onClick={() => setPay(!pay)} className='w-screen h-screen  left-0  fixed top-0 opacity-30 bg-gray-400'></div>
+                        <div className=' bg-slate-50 w-2/3 p-10 z-30'>
+                        <PayElementCart/>
+                        </div>
+                    </div>}
+                    
+
                 </>
             }
         </>
