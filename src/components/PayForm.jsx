@@ -13,7 +13,8 @@ export default function PayForm() {
         const response = await stripe.confirmPayment({
             elements,
             confirmParams:{
-                return_url:"http://localhost:3000/pay/correct"
+                // return_url:"http://localhost:3000/pay/correct"
+                return_url:"https://efruits-47d7f.web.app/pay/correct"
             }
         })
         console.log(response)
